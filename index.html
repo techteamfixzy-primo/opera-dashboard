@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OPERA Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="login.css" />
+</head>
+
+<body>
+
+<div class="login-page" id="loginPage">
+  <div class="login-card">
+    <img src="assets/opera-logo.png" alt="OPERA Logo">
+    <h1>Login to OPERA Dashboard</h1>
+    <p>กรอกอีเมลเพื่อเข้าสู่ Dashboard</p>
+
+    <input id="loginEmail" type="email" placeholder="your@email.com">
+    <button id="loginButton">เข้าสู่ระบบ</button>
+
+    <small id="loginError"></small>
+  </div>
+</div>
+
+<div class="app" id="dashboardApp" style="display:none;">
+
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="assets/opera-logo.png" alt="OPERA Logo">
+    </div>
+
+    <nav class="menu">
+      <a class="active">Dashboard</a>
+      <a>Goals</a>
+      <a>Activities</a>
+      <a>Results</a>
+      <a>Insights</a>
+      <a>Recommendations</a>
+      <a>Settings</a>
+    </nav>
+
+    <div class="support-card">
+      <div class="support-icon">🎧</div>
+      <h3>Need Support?</h3>
+      <p>Contact your OPERA team</p>
+      <a class="support-btn" href="https://cutt.ly/xt47PZtb" target="_blank" rel="noopener">
+        Contact Us
+      </a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <header class="topbar">
+
+      <select id="companySelect" class="company-picker company-display" disabled>
+        <option>Loading company...</option>
+      </select>
+
+      <select id="serviceSelect" class="company-picker service-picker">
+        <option>Loading service...</option>
+      </select>
+
+      <div class="topbar-right">
+        <div id="periodDisplay" class="date-display">มิ.ย. 2026</div>
+
+        <div class="profile">
+          <div class="avatar" id="profileAvatar">K</div>
+          <div>
+            <strong id="profileName">Client User</strong>
+            <p id="profileRole">Viewer</p>
+          </div>
+          <button id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="page-title">
+      <h1 id="serviceTitle">Service Dashboard</h1>
+      <p id="companySubtitle">Dashboard Overview</p>
+    </section>
+
+    <section class="top-grid">
+
+      <div class="card goals-card">
+        <div class="card-head">
+          <h2>เป้าหมายเดือนนี้ (Goals)</h2>
+        </div>
+        <div id="goalsList"></div>
+      </div>
+
+      <div class="card progress-card">
+        <h2>ภาพรวมความสำเร็จ (Overall Progress)</h2>
+
+        <div class="progress-content">
+          <div class="circle" id="overallCircle">
+            <div>
+              <strong id="overallPercent">0%</strong>
+              <p>Goal Achievement</p>
+            </div>
+          </div>
+
+          <div class="progress-detail">
+            <p class="small-label">สถานะเป้าหมาย</p>
+            <div class="status" id="overallStatus">● Loading</div>
+
+            <hr>
+
+            <p class="small-label">อัปเดตล่าสุด</p>
+            <strong id="lastUpdated">-</strong>
+
+            <hr>
+
+            <p class="small-label">เทียบกับเป้าหมายรวม</p>
+            <strong id="overallCompare">-</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="card actions-card">
+        <h2>งานที่ดำเนินการวันนี้</h2>
+        <div class="actions-grid" id="actionsGrid"></div>
+      </div>
+
+    </section>
+
+    <section class="middle-grid clean-middle">
+
+      <div class="card daily-card">
+        <div class="card-head">
+          <h2>ความคืบหน้ารายวัน (Daily Progress)</h2>
+          <div class="date-display small-date">7 วันล่าสุด</div>
+        </div>
+
+        <div class="legend" id="dailyLegend"></div>
+        <div class="daily-chart" id="dailyChart"></div>
+      </div>
+
+      <div class="card peak-card">
+        <h2>ผลลัพธ์สำคัญของบริการ</h2>
+        <div id="businessImpactList"></div>
+      </div>
+
+    </section>
+
+    <section class="drivers-grid">
+      <div class="card drivers-card">
+        <h2>Key Drivers</h2>
+        <div id="driversList"></div>
+      </div>
+    </section>
+
+    <section class="bottom-grid clean-bottom">
+
+      <div class="card">
+        <h2>งานที่ทีม OPERA ดำเนินการ</h2>
+        <ul class="activity-list" id="activityList"></ul>
+      </div>
+
+      <div class="card insight-card">
+        <h2>Insights</h2>
+        <div id="insightsList"></div>
+      </div>
+
+      <div class="card recommend-card">
+        <h2>Recommendations</h2>
+        <div id="recommendationsList"></div>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<script src="config.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>
